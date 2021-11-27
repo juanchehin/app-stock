@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="warning">
+        <ion-buttons slot="start">
+            <ion-menu-button color="dark" slot="start"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-searchbar placeholder="Busque aqui"></ion-searchbar>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="warning">
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let p of chehinService.arregloProductos" col-6 no-padding>
+                <ion-card color="success" (click)="accederProducto(p.tipo)">
+                    <ion-card-header>
+                        <h2>{{ p.tipo }}</h2>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="agregaCategoria()">
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
